@@ -100,7 +100,7 @@ async def start(bot, cmd):
                         InlineKeyboardButton("👀 ᴅᴇᴠ 👀", url="https://t.me/NxtStark")
                     ],
                     [
-                        InlineKeyboardButton("🌿 ᴊᴏɪɴ ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 🌿", url=invite_link.invite_link)
+                        InlineKeyboardButton("🌿 ᴊᴏɪɴ ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 🌿", invite_link.invite_link)
                     ]
                 ]
             )
