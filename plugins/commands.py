@@ -2,7 +2,7 @@ import os
 import logging
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from info import START_MSG, CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION, START_IMG, AUTH_GROUPS, BOT_ONR
+from info import START_MSG, CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION, START_IMG, AUTH_GROUPS, BOT_ONR, MAIN_GROUP
 from utils import Media, get_file_details 
 from pyrogram.errors import UserNotParticipant
 logger = logging.getLogger(__name__)
@@ -63,8 +63,7 @@ async def start(bot, cmd):
                         print(e)
                         f_caption=f_caption
                 if f_caption is None:
-                    f_caption = f"{files.file_name}"
-                    invite_linkd = await bot.create_chat_invite_link(int(AUTH_GROUPS)) 
+                    f_caption = f"{files.file_name}" 
                 buttons = [
                     [
                         InlineKeyboardButton("🍁 sᴇᴀʀᴄʜ ᴀɢᴀɪɴ 🍁", url=invite_linkd.invite_link)
@@ -93,13 +92,12 @@ async def start(bot, cmd):
         )
     else:        
         await cmd.reply_photo(photo=START_IMG, caption=START_MSG.format(cmd.from_user.mention),
-         invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
-         invite_linkd = await bot.create_chat_invite_link(int(AUTH_GROUPS))                              
+         invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))                           
            reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton("🤴 ʙᴏᴛ ᴏᴡɴᴇʀ 🤴", url="https://t.me/{BOT_ONR}"),
-                        InlineKeyboardButton("🍁 ʙᴏᴛ ɢʀᴏᴜᴘ 🍁", url=invite_linkd.invite_link),
+                        InlineKeyboardButton("🍁 ʙᴏᴛ ɢʀᴏᴜᴘ 🍁", url="https://t.me/{MAIN_GROUP}"),
                         InlineKeyboardButton("👀 ᴅᴇᴠ 👀", url="https://t.me/NxtStark")
                     ],
                     [
