@@ -90,9 +90,10 @@ async def start(bot, cmd):
                 ]
             )
         )
-    else:
+    else:        
         await cmd.reply_photo(photo=START_IMG, caption=START_MSG.format(cmd.from_user.mention),
-            reply_markup=InlineKeyboardMarkup(
+         invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))                             
+           reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton("🤴 ʙᴏᴛ ᴏᴡɴᴇʀ 🤴", url="https://t.me/{BOT_ONR}"),
@@ -186,6 +187,7 @@ async def delete(bot, message):
     else:
         await msg.edit('File not found in database')
 @Client.on_message(filters.command('about'))
+        invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
 async def bot_info(bot, message):
     buttons = [
         [
