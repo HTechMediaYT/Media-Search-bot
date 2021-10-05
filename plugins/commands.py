@@ -66,7 +66,7 @@ async def start(bot, cmd):
                     f_caption = f"{files.file_name}" 
                 buttons = [
                     [
-                        InlineKeyboardButton("🍁 ʙᴏᴛ ɢʀᴏᴜᴘ 🍁", url="https://t.me/{MAIN_GROUP}")
+                        InlineKeyboardButton("🍁 ʙᴏᴛ ɢʀᴏᴜᴘ 🍁", url=MAIN_GROUP)
                     ]
                     ]
                 await bot.send_cached_media(
@@ -97,7 +97,7 @@ async def start(bot, cmd):
                 [
                     [
                         InlineKeyboardButton("🤴 ʙᴏᴛ ᴏᴡɴᴇʀ 🤴", url=BOT_ONR),
-                        InlineKeyboardButton("🍁 ʙᴏᴛ ɢʀᴏᴜᴘ 🍁", url="https://t.me/(MAIN_GROUP)"),
+                        InlineKeyboardButton("🍁 ʙᴏᴛ ɢʀᴏᴜᴘ 🍁", url=MAIN_GROUP),
                         InlineKeyboardButton("👀 ᴅᴇᴠ 👀", url="https://t.me/NxtStark")
                     ],
                     [
