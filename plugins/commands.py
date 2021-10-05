@@ -96,7 +96,7 @@ async def start(bot, cmd):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("🤴 ʙᴏᴛ ᴏᴡɴᴇʀ 🤴", url="https://t.me/(BOT_ONR)"),
+                        InlineKeyboardButton("🤴 ʙᴏᴛ ᴏᴡɴᴇʀ 🤴", url=BOT_ONR),
                         InlineKeyboardButton("🍁 ʙᴏᴛ ɢʀᴏᴜᴘ 🍁", url="https://t.me/(MAIN_GROUP)"),
                         InlineKeyboardButton("👀 ᴅᴇᴠ 👀", url="https://t.me/NxtStark")
                     ],
