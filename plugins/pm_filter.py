@@ -1,5 +1,5 @@
 #Kanged From @TroJanZheX
-from info import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GROUPS, RESULT_MSG
+from info import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GROUPS, RESULT_MSG, MAIN_GROUP
 from info import TUTORIAL
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters
@@ -238,13 +238,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     reply_markup=InlineKeyboardMarkup(buttons)
                 )
                 return
-        elif query.data == "about":
-            invite_linkd = await bot.create_chat_invite_link(int(AUTH_GROUPS))  
+        elif query.data == "about":  
             invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
             buttons = [
                 [
                     InlineKeyboardButton("🌿 ᴊᴏɪɴ ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 🌿", url=invite_link.invite_link),
-                    InlineKeyboardButton("🌱 ʙᴏᴛ ɢʀᴏᴜᴘ 🌱", url=invite_linkd.invite_link)
+                    InlineKeyboardButton("🍁 ʙᴏᴛ ɢʀᴏᴜᴘ 🍁", url="https://t.me/{MAIN_GROUP}")
                 ]
                 ]
             await query.message.edit(text=f"<b>Developer : <a href='https://telegram.dog/NxtStark'>SUBIN</a>\nLanguage : <code>Python3</code>\nLibrary : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\nUpdate Channel : <a href='https://t.me/HTechMedia'>HTechMedia</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -266,11 +265,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         print(e)
                         f_caption=f_caption
                 if f_caption is None:
-                    invite_linkd = await bot.create_chat_invite_link(int(AUTH_GROUPS))  
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                        InlineKeyboardButton("🌱 ʙᴏᴛ ɢʀᴏᴜᴘ 🌱", url=invite_linkd.invite_link)
+                        InlineKeyboardButton("🍁 ʙᴏᴛ ɢʀᴏᴜᴘ 🍁", url="https://t.me/{MAIN_GROUP}")
                     ]
                     ]
                 
@@ -298,12 +296,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     except Exception as e:
                         print(e)
                         f_caption=f_caption
-                if f_caption is None:
-                    invite_linkd = await bot.create_chat_invite_link(int(AUTH_GROUPS))  
+                if f_caption is None:  
                     f_caption = f"{title}"
                 buttons = [
                     [
-                        InlineKeyboardButton("🌱 ʙᴏᴛ ɢʀᴏᴜᴘ 🌱", url=invite_linkd.invite_link)
+                        InlineKeyboardButton("🍁 ʙᴏᴛ ɢʀᴏᴜᴘ 🍁", url="https://t.me/{MAIN_GROUP}")
                     ]
                     ]
                 
