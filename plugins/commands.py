@@ -90,9 +90,9 @@ async def start(bot, cmd):
                 ]
             )
         )
-    else:        
-        await cmd.reply_photo(photo=START_IMG, caption=START_MSG.format(cmd.from_user.mention),
-         invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))                           
+    else:
+        invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
+        await cmd.reply_photo(photo=START_IMG, caption=START_MSG.format(cmd.from_user.mention),                           
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
