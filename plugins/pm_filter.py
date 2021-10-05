@@ -244,7 +244,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             buttons = [
                 [
                     InlineKeyboardButton("🌿 ᴊᴏɪɴ ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 🌿", url=invite_link.invite_link),
-                    InlineKeyboardButton("🌱 ʙᴏᴛ ɢʀᴏᴜᴘ 🌱", invite_linkd.invite_link)
+                    InlineKeyboardButton("🌱 ʙᴏᴛ ɢʀᴏᴜᴘ 🌱", url=invite_linkd.invite_link)
                 ]
                 ]
             await query.message.edit(text=f"<b>Developer : <a href='https://telegram.dog/NxtStark'>SUBIN</a>\nLanguage : <code>Python3</code>\nLibrary : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\nUpdate Channel : <a href='https://t.me/HTechMedia'>HTechMedia</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -270,7 +270,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                        InlineKeyboardButton("🌱 ʙᴏᴛ ɢʀᴏᴜᴘ 🌱", invite_linkd.invite_link)
+                        InlineKeyboardButton("🌱 ʙᴏᴛ ɢʀᴏᴜᴘ 🌱", url=invite_linkd.invite_link)
                     ]
                     ]
                 
@@ -303,7 +303,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{title}"
                 buttons = [
                     [
-                        InlineKeyboardButton("🌱 ʙᴏᴛ ɢʀᴏᴜᴘ 🌱", invite_linkd.invite_link)
+                        InlineKeyboardButton("🌱 ʙᴏᴛ ɢʀᴏᴜᴘ 🌱", url=invite_linkd.invite_link)
                     ]
                     ]
                 
