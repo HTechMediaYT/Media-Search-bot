@@ -28,6 +28,8 @@ DATABASE_NAME = environ['DATABASE_NAME']
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 # Messages
+default_onr = """NxtStark"""
+default_group = """MovieMediaGroup"""
 default_start_msg = """
 **Hi, I'm Media Search Bot or ypu can call me as Auto-Filter Bot**
 Here you can search files in Inline mode as well as PM, Use the below buttons to search files or send me the name of file to search.
@@ -36,6 +38,7 @@ START_MSG = environ.get('START_MSG', default_start_msg)
 START_IMG = environ.get("START_IMG", "https://telegra.ph/file/7e7045c6d4e402131e305.jpg")
 RESULT_MSG = environ.get("RESULT_MSG", "")
 MAIN_GROUP = environ.get("MAIN_GROUP", "")
+BOT_ONR = environ.get("BOT_ONR", "NxtStark")
 
 FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", "")
 OMDB_API_KEY = environ.get("OMDB_API_KEY", "http://www.omdbapi.com/?i=tt3896198&apikey=4f08a979")
@@ -47,3 +50,15 @@ if OMDB_API_KEY.strip() == "":
     API_KEY=None
 else:
     API_KEY=OMDB_API_KEY
+if RESULT_MSG.strip() == "":
+    RESULT_MSG=None
+else:
+    FILE_CAPTION=RESULT_MSG
+if MAIN_GROUP.strip() == "":
+    MAIN_GROUP=None
+else:
+    default_group=MAIN_GROUP    
+if BOT_ONR.strip() == "":
+    BOT_ONR=None
+else:
+    default_onr=BOT_ONR
