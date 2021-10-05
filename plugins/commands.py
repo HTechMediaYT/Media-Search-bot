@@ -67,7 +67,7 @@ async def start(bot, cmd):
                     invite_linkd = await bot.create_chat_invite_link(int(AUTH_GROUPS)) 
                 buttons = [
                     [
-                        InlineKeyboardButton("🍁 sᴇᴀʀᴄʜ ᴀɢᴀɪɴ 🍁", invite_linkd.invite_link)
+                        InlineKeyboardButton("🍁 sᴇᴀʀᴄʜ ᴀɢᴀɪɴ 🍁", url=invite_linkd.invite_link)
                     ]
                     ]
                 await bot.send_cached_media(
@@ -99,11 +99,11 @@ async def start(bot, cmd):
                 [
                     [
                         InlineKeyboardButton("🤴 ʙᴏᴛ ᴏᴡɴᴇʀ 🤴", url="https://t.me/{BOT_ONR}"),
-                        InlineKeyboardButton("🍁 ʙᴏᴛ ɢʀᴏᴜᴘ 🍁", invite_linkd.invite_link),
+                        InlineKeyboardButton("🍁 ʙᴏᴛ ɢʀᴏᴜᴘ 🍁", url=invite_linkd.invite_link),
                         InlineKeyboardButton("👀 ᴅᴇᴠ 👀", url="https://t.me/NxtStark")
                     ],
                     [
-                        InlineKeyboardButton("🌿 ᴊᴏɪɴ ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 🌿", invite_link.invite_link)
+                        InlineKeyboardButton("🌿 ᴊᴏɪɴ ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 🌿", url=invite_link.invite_link)
                     ]
                 ]
             )
