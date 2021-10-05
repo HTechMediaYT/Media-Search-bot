@@ -102,6 +102,7 @@ async def start(bot, cmd):
                     ],
                     [
                         InlineKeyboardButton("🌿 ᴊᴏɪɴ ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 🌿", url=invite_link.invite_link)
+                        InlineKeyboardButton("🥀 YouTube 🥀", url="https://youtube.com/channel/UC6VyKvFwaMBHiqvtlu-i0_w")                        
                     ]
                 ]
             )
