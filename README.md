@@ -4,11 +4,11 @@
 </p>
 <p align="center">
   <a href="https://github.com/HTechMediaYT/Media-Search-bot/stars">
-    <img src="https://img.shields.io/github/stars/HTechMediaYT/Media-Search-bot?label=Star&style=social"
+    <img src="https://img.shields.io/github/stars/HTechMediaYT/Media-Search-bott?label=Star&style=social"
   </a>
   
   <a href="https://github.com/HTechMediaYT/Media-Search-bot/fork">
-    <img src="https://img.shields.io/github/forks/HTechMediaYT/Media-Search-bot?label=Fork&style=social">
+    <img src="https://img.shields.io/github/forks/HTechMediaYT/Media-Search-bott?label=Fork&style=social">
   </a>  
 
 ---
@@ -51,7 +51,7 @@
 ## Installation
 
 ### Easy Way
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/HTechMediaYT/Media-Search-bot)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/HTechMediaYT/Media-Search-bott)
 ### Hard Way
 
 ```bash
