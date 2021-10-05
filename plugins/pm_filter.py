@@ -1,5 +1,5 @@
 #Kanged From @TroJanZheX
-from info import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GROUPS, RESULT_MSG, MAIN_GROUP
+from info import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GROUPS, RESULT_MSG
 from info import TUTORIAL
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters
@@ -239,10 +239,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 )
                 return
         elif query.data == "about":
+            invite_linkd = await bot.create_chat_invite_link(int(AUTH_GROUPS))  
+            invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
             buttons = [
                 [
                     InlineKeyboardButton("🌿 ᴊᴏɪɴ ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 🌿", url=invite_link.invite_link),
-                    InlineKeyboardButton("🌱 ʙᴏᴛ ɢʀᴏᴜᴘ 🌱", url="https://t.me/{MAIN_GROUP}")
+                    InlineKeyboardButton("🌱 ʙᴏᴛ ɢʀᴏᴜᴘ 🌱", invite_linkd.invite_link)
                 ]
                 ]
             await query.message.edit(text=f"<b>Developer : <a href='https://telegram.dog/NxtStark'>SUBIN</a>\nLanguage : <code>Python3</code>\nLibrary : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\nUpdate Channel : <a href='https://t.me/HTechMedia'>HTechMedia</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -257,16 +259,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 size=files.file_size
                 f_caption=files.caption
                 if CUSTOM_FILE_CAPTION:
+                invite_linkd = await bot.create_chat_invite_link(int(AUTH_GROUPS))                      
                     try:
                         f_caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=f_caption)
                     except Exception as e:
                         print(e)
                         f_caption=f_caption
                 if f_caption is None:
+                    invite_linkd = await bot.create_chat_invite_link(int(AUTH_GROUPS))  
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                        InlineKeyboardButton("🌱 ʙᴏᴛ ɢʀᴏᴜᴘ 🌱", url="https://t.me/{MAIN_GROUP}")
+                        InlineKeyboardButton("🌱 ʙᴏᴛ ɢʀᴏᴜᴘ 🌱", invite_linkd.invite_link)
                     ]
                     ]
                 
@@ -288,16 +292,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 size=files.file_size
                 f_caption=files.caption
                 if CUSTOM_FILE_CAPTION:
+                    invite_linkd = await bot.create_chat_invite_link(int(AUTH_GROUPS))  
                     try:
                         f_caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=f_caption)
                     except Exception as e:
                         print(e)
                         f_caption=f_caption
                 if f_caption is None:
+                    invite_linkd = await bot.create_chat_invite_link(int(AUTH_GROUPS))  
                     f_caption = f"{title}"
                 buttons = [
                     [
-                        InlineKeyboardButton("🌱 ʙᴏᴛ ɢʀᴏᴜᴘ 🌱", url="https://t.me/{MAIN_GROUP}")
+                        InlineKeyboardButton("🌱 ʙᴏᴛ ɢʀᴏᴜᴘ 🌱", invite_linkd.invite_link)
                     ]
                     ]
                 
