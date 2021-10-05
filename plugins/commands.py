@@ -2,7 +2,7 @@ import os
 import logging
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from info import START_MSG, CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION, START_IMG, MAIN_GROUP, BOT_ONR
+from info import START_MSG, CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION, START_IMG, AUTH_GROUPS, BOT_ONR
 from utils import Media, get_file_details 
 from pyrogram.errors import UserNotParticipant
 logger = logging.getLogger(__name__)
@@ -64,9 +64,10 @@ async def start(bot, cmd):
                         f_caption=f_caption
                 if f_caption is None:
                     f_caption = f"{files.file_name}"
+                    invite_linkd = await bot.create_chat_invite_link(int(AUTH_GROUPS)) 
                 buttons = [
                     [
-                        InlineKeyboardButton("🍁 sᴇᴀʀᴄʜ ᴀɢᴀɪɴ 🍁", url="https://t.me/{MAIN_GROUP}")
+                        InlineKeyboardButton("🍁 sᴇᴀʀᴄʜ ᴀɢᴀɪɴ 🍁", invite_linkd.invite_link)
                     ]
                     ]
                 await bot.send_cached_media(
@@ -92,12 +93,13 @@ async def start(bot, cmd):
         )
     else:        
         await cmd.reply_photo(photo=START_IMG, caption=START_MSG.format(cmd.from_user.mention),
-         invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))                             
+         invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
+         invite_linkd = await bot.create_chat_invite_link(int(AUTH_GROUPS))                              
            reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton("🤴 ʙᴏᴛ ᴏᴡɴᴇʀ 🤴", url="https://t.me/{BOT_ONR}"),
-                        InlineKeyboardButton("🍁 ʙᴏᴛ ɢʀᴏᴜᴘ 🍁", url="https://t.me/{MAIN_GROUP}"),
+                        InlineKeyboardButton("🍁 ʙᴏᴛ ɢʀᴏᴜᴘ 🍁", invite_linkd.invite_link),
                         InlineKeyboardButton("👀 ᴅᴇᴠ 👀", url="https://t.me/NxtStark")
                     ],
                     [
@@ -186,12 +188,3 @@ async def delete(bot, message):
         await msg.edit('File is successfully deleted from database')
     else:
         await msg.edit('File not found in database')
-@Client.on_message(filters.command('about'))
-        invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
-async def bot_info(bot, message):
-    buttons = [
-        [
-            InlineKeyboardButton('🌿 ᴊᴏɪɴ ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 🌿', url=invite_link.invite_link),
-            InlineKeyboardButton('🍁 ʙᴏᴛ ɢʀᴏᴜᴘ 🍁', url='https://t.me/{MAIN_GROUP}')
-        ]
-        ]
