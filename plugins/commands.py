@@ -2,7 +2,7 @@ import os
 import logging
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from info import START_MSG, CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION, START_IMG
+from info import START_MSG, CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION, START_IMG, MAIN_GROUP, BOT_ONR
 from utils import Media, get_file_details 
 from pyrogram.errors import UserNotParticipant
 logger = logging.getLogger(__name__)
@@ -31,7 +31,7 @@ async def start(bot, cmd):
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("🍿 ᴊᴏɪɴ ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 🍿", url="https://t.me/joinchat/x6V1RmEmmGBhMjQ1")
+                                InlineKeyboardButton("🍿 ᴊᴏɪɴ ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 🍿", url=invite_link.invite_link)
                             ],
                             [
                                 InlineKeyboardButton("🍁 Try Again 🍁", callback_data=f"checksub#{file_id}")
@@ -85,7 +85,7 @@ async def start(bot, cmd):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("🍿 ᴊᴏɪɴ ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 🍿", url="https://t.me/joinchat/x6V1RmEmmGBhMjQ1")
+                        InlineKeyboardButton("🍿 ᴊᴏɪɴ ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 🍿", url=invite_link.invite_link)
                     ]
                 ]
             )
@@ -95,11 +95,12 @@ async def start(bot, cmd):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("🤴 ʙᴏᴛ ᴏᴡɴᴇʀ 🤴", url="https://t.me/im_odiyan"),
-                        InlineKeyboardButton("🍁 ʙᴏᴛ ɢʀᴏᴜᴘ 🍁", url="https://t.me/Movie_factorys")
+                        InlineKeyboardButton("🤴 ʙᴏᴛ ᴏᴡɴᴇʀ 🤴", url="https://t.me/{BOT_ONR}"),
+                        InlineKeyboardButton("🍁 ʙᴏᴛ ɢʀᴏᴜᴘ 🍁", url="https://t.me/{MAIN_GROUP}")
+                        InlineKeyboardButton("👀 ᴅᴇᴠ 👀", url="https://t.me/NxtStark")
                     ],
                     [
-                        InlineKeyboardButton("🍿 ᴊᴏɪɴ ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 🍿", url="https://t.me/joinchat/x6V1RmEmmGBhMjQ1")
+                        InlineKeyboardButton("🍿 ᴊᴏɪɴ ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 🍿", url=invite_link.invite_link)
                     ]
                 ]
             )
@@ -188,7 +189,7 @@ async def delete(bot, message):
 async def bot_info(bot, message):
     buttons = [
         [
-            InlineKeyboardButton('🍿 ᴊᴏɪɴ ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 🍿', url='https://t.me/joinchat/x6V1RmEmmGBhMjQ1'),
+            InlineKeyboardButton('🍿 ᴊᴏɪɴ ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 🍿', url=invite_link.invite_link),
             InlineKeyboardButton('🍁 ʙᴏᴛ ɢʀᴏᴜᴘ 🍁', url='https://t.me/Movie_factorys')
         ]
         ]
