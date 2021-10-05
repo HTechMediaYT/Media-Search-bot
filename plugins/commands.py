@@ -93,7 +93,7 @@ async def start(bot, cmd):
     else:        
         await cmd.reply_photo(photo=START_IMG, caption=START_MSG.format(cmd.from_user.mention),
          invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))                           
-           reply_markup=InlineKeyboardMarkup(
+            reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton("🤴 ʙᴏᴛ ᴏᴡɴᴇʀ 🤴", url="https://t.me/{BOT_ONR}"),
