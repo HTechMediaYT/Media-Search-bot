@@ -1,5 +1,5 @@
 #Kanged From @TroJanZheX
-from info import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GROUPS
+from info import AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, API_KEY, AUTH_GROUPS, RESULT_MSG, MAIN_GROUP
 from info import TUTORIAL
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters
@@ -115,16 +115,16 @@ async def group(client, message):
             if API_KEY:
                 poster=await get_poster(search)
             if poster:
-                await message.reply_photo(photo=poster, caption=f"<b>🍿 ᴍᴏᴠɪᴇ ɴᴀᴍᴇ : <code>{search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </code>\n🔔ɢʀᴏᴜᴘ : [ᴍᴏɪᴠᴇ ғᴀᴄᴛᴏʀʏ](https://t.me/Movie_factorys)\n⚡️ᴘᴏᴡᴇʀᴇᴅ ʙʏ : [ആറാം തമ്പുരാൻ²·⁰](http://t.me/Oru_autofilter_bot) </b>", reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply_photo(photo=poster, caption=f"<b>🍿 ᴍᴏᴠɪᴇ ɴᴀᴍᴇ : <code>{search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </code>{RESULT_MSG} </b>", reply_markup=InlineKeyboardMarkup(buttons))
             else:
-                await message.reply_text(f"<b>🍿 ᴍᴏᴠɪᴇ ɴᴀᴍᴇ : <code>{search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </code>\n🔔ɢʀᴏᴜᴘ : [ᴍᴏɪᴠᴇ ғᴀᴄᴛᴏʀʏ](https://t.me/Movie_factorys)\n⚡️ᴘᴏᴡᴇʀᴇᴅ ʙʏ : [ആറാം തമ്പുരാൻ²·⁰](http://t.me/Oru_autofilter_bot) </b>", reply_markup=InlineKeyboardMarkup(buttons))
+                await message.reply_text(f"<b>🍿 ᴍᴏᴠɪᴇ ɴᴀᴍᴇ : <code>{search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </code>{RESULT_MSG} </b>", reply_markup=InlineKeyboardMarkup(buttons))
             return
 
         data = BUTTONS[keyword]
         buttons = data['buttons'][0].copy()
 
         buttons.append(
-            [InlineKeyboardButton(text="🐚 ɴᴇxᴛ ᴘᴀɢᴇ 🐚",callback_data=f"next_0_{keyword}")]
+            [InlineKeyboardButton(text="🍁 ɴᴇxᴛ ᴘᴀɢᴇ 🍁",callback_data=f"next_0_{keyword}")]
         )    
         buttons.append(
             [InlineKeyboardButton(text=f"📄 ᴘᴀɢᴇs 1/{data['total']} 📄",callback_data="pages")]
@@ -133,10 +133,9 @@ async def group(client, message):
         if API_KEY:
             poster=await get_poster(search)
         if poster:
-            await message.reply_photo(photo=poster, caption=f"<b>🍿 ᴍᴏᴠɪᴇ ɴᴀᴍᴇ : <code>{search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </code>\n🔔ɢʀᴏᴜᴘ : [ᴍᴏɪᴠᴇ ғᴀᴄᴛᴏʀʏ](https://t.me/Movie_factorys)\n⚡️ᴘᴏᴡᴇʀᴇᴅ ʙʏ : [ആറാം തമ്പുരാൻ²·⁰](http://t.me/Oru_autofilter_bot) </b>", reply_markup=InlineKeyboardMarkup(buttons))
+            await message.reply_photo(photo=poster, caption=f"<b>🍿 ᴍᴏᴠɪᴇ ɴᴀᴍᴇ : <code>{search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </code>{RESULT_MSG} </b>", reply_markup=InlineKeyboardMarkup(buttons))
         else:
-            await message.reply_text(f"<b>🍿 ᴍᴏᴠɪᴇ ɴᴀᴍᴇ : <code>{search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </code>\n🔔ɢʀᴏᴜᴘ : [ᴍᴏɪᴠᴇ ғᴀᴄᴛᴏʀʏ](https://t.me/Movie_factorys)\n⚡️ᴘᴏᴡᴇʀᴇᴅ ʙʏ : [ആറാം തമ്പുരാൻ²·⁰](http://t.me/Oru_autofilter_bot) </b>", reply_markup=InlineKeyboardMarkup(buttons))
-
+            await message.reply_text(f"<b>🍿 ᴍᴏᴠɪᴇ ɴᴀᴍᴇ : <code>{search} ‌‌‌‌‎ ­  ­  ­  ­  ­  </code>{RESULT_MSG} </b>", reply_markup=InlineKeyboardMarkup(buttons))
     
 def get_size(size):
     """Get size in readable format"""
@@ -177,7 +176,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 buttons = data['buttons'][int(index)+1].copy()
 
                 buttons.append(
-                    [InlineKeyboardButton("🐚 Back ᴘᴀɢᴇ 🐚", callback_data=f"back_{int(index)+1}_{keyword}")]
+                    [InlineKeyboardButton("🍁 Back ᴘᴀɢᴇ 🍁", callback_data=f"back_{int(index)+1}_{keyword}")]
                 )
                 buttons.append(
                     [InlineKeyboardButton(f"📄 ᴘᴀɢᴇs {int(index)+2}/{data['total']} 📄", callback_data="pages")]
@@ -191,7 +190,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 buttons = data['buttons'][int(index)+1].copy()
 
                 buttons.append(
-                    [InlineKeyboardButton("🐚 Back ᴘᴀɢᴇ 🐚", callback_data=f"back_{int(index)+1}_{keyword}"),InlineKeyboardButton("🍁 ɴᴇxᴛ ᴘᴀɢᴇ 🍁", callback_data=f"next_{int(index)+1}_{keyword}")]
+                    [InlineKeyboardButton("🍁 Back ᴘᴀɢᴇ 🍁", callback_data=f"back_{int(index)+1}_{keyword}"),InlineKeyboardButton("🍁 ɴᴇxᴛ ᴘᴀɢᴇ 🍁", callback_data=f"next_{int(index)+1}_{keyword}")]
                 )
                 buttons.append(
                     [InlineKeyboardButton(f"📄 ᴘᴀɢᴇs {int(index)+2}/{data['total']} 📄", callback_data="pages")]
@@ -215,7 +214,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 buttons = data['buttons'][int(index)-1].copy()
 
                 buttons.append(
-                    [InlineKeyboardButton("🐚 ɴᴇxᴛ ᴘᴀɢᴇ 🐚", callback_data=f"next_{int(index)-1}_{keyword}")]
+                    [InlineKeyboardButton("🍁 ɴᴇxᴛ ᴘᴀɢᴇ 🍁", callback_data=f"next_{int(index)-1}_{keyword}")]
                 )
                 buttons.append(
                     [InlineKeyboardButton(f"📄 ᴘᴀɢᴇs {int(index)}/{data['total']} 📄", callback_data="pages")]
@@ -229,7 +228,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 buttons = data['buttons'][int(index)-1].copy()
 
                 buttons.append(
-                    [InlineKeyboardButton("🐚 Back ᴘᴀɢᴇ 🐚", callback_data=f"back_{int(index)-1}_{keyword}"),InlineKeyboardButton("🍁 ɴᴇxᴛ ᴘᴀɢᴇ 🍁", callback_data=f"next_{int(index)-1}_{keyword}")]
+                    [InlineKeyboardButton("🍁 Back ᴘᴀɢᴇ 🍁", callback_data=f"back_{int(index)-1}_{keyword}"),InlineKeyboardButton("🍁 ɴᴇxᴛ ᴘᴀɢᴇ 🍁", callback_data=f"next_{int(index)-1}_{keyword}")]
                 )
                 buttons.append(
                     [InlineKeyboardButton(f"📄 ᴘᴀɢᴇs {int(index)}/{data['total']} 📄", callback_data="pages")]
@@ -243,7 +242,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             buttons = [
                 [
                     InlineKeyboardButton("🌿 ᴊᴏɪɴ ᴏᴜʀ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ 🌿", url=invite_link.invite_link),
-                    InlineKeyboardButton("🌱 ʙᴏᴛ ɢʀᴏᴜᴘ 🌱", url="https://t.me/Movie_factorys")
+                    InlineKeyboardButton("🌱 ʙᴏᴛ ɢʀᴏᴜᴘ 🌱", url="https://t.me/{MAIN_GROUP}")
                 ]
                 ]
             await query.message.edit(text=f"<b>Developer : <a href='https://telegram.dog/NxtStark'>SUBIN</a>\nLanguage : <code>Python3</code>\nLibrary : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\nUpdate Channel : <a href='https://t.me/HTechMedia'>HTechMedia</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -267,7 +266,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                        InlineKeyboardButton("🌱 ʙᴏᴛ ɢʀᴏᴜᴘ 🌱", url="https://t.me/Movie_factorys")
+                        InlineKeyboardButton("🌱 ʙᴏᴛ ɢʀᴏᴜᴘ 🌱", url="https://t.me/{MAIN_GROUP}")
                     ]
                     ]
                 
@@ -298,7 +297,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{title}"
                 buttons = [
                     [
-                        InlineKeyboardButton("🌱 ʙᴏᴛ ɢʀᴏᴜᴘ 🌱", url="https://t.me/Movie_factorys")
+                        InlineKeyboardButton("🌱 ʙᴏᴛ ɢʀᴏᴜᴘ 🌱", url="https://t.me/{MAIN_GROUP}")
                     ]
                     ]
                 
